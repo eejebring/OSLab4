@@ -21,6 +21,10 @@ app.post(apiWebRoot + "/off", (req: Request, res: Response) => {
 	res.sendStatus(200)
 })
 
+app.use((req: Request, res: Response) => {
+	res.sendStatus(404)
+})
+
 app.listen(port, () => {
 	console.log(`[server]: Server is running at http://localhost:${port}`)
 })
