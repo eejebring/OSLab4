@@ -4,7 +4,7 @@
   "description": "A web interface to provide a button interface to controll led:s on a raspberry pi",
   "main": "main.js",
   "scripts": {
-    "start": "npx tsc && node ./build/main.js"
+    "start": "npx tsc && cp ./src/index.html ./build/index.html && node ./build/main.js"
   },
   "author": "eejebring",
   "license": "ISC",

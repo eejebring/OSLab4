@@ -5,7 +5,11 @@ const port = 8080
 const apiWebRoot = "/api/1.0"
 
 app.get("/", (req: Request, res: Response) => {
-	res.send("Express + TypeScript Server")
+	res.sendFile("index.html", {root: __dirname})
+})
+
+app.get("/client.js", (req: Request, res: Response) => {
+	res.sendFile("client.js", {root: __dirname})
 })
 
 app.post(apiWebRoot + "/on", (req: Request, res: Response) => {
