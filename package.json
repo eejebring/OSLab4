@@ -1,0 +1,20 @@
+{
+  "name": "oslab4",
+  "version": "1.0.0",
+  "description": "A web interface to provide a button interface to controll led:s on a raspberry pi",
+  "main": "main.js",
+  "scripts": {
+    "start": "npx tsc && node ./build/main.js"
+  },
+  "author": "eejebring",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "onoff": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.2",
+    "typescript": "^5.3.2"
+  }
+}
