@@ -4,6 +4,11 @@
 		<meta charset="UTF-8">
 		<title>Light control</title>
 		<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+		<style>
+            .container {
+                padding: 2em;
+            }
+		</style>
 		<script src="../client.js"></script>
 	</head>
 	<body>
@@ -11,8 +16,8 @@
 			<h1 class="text-center">Light control</h1>
 			<hr/>
 			<div class="btn-group btn-group-block col-6 col-mx-auto">
-				<button class="btn btn">On</button>
-				<button class="btn btn-primary">Off</button>
+				<button id="onButton" class="btn">On</button>
+				<button id="offButton" class="btn btn-primary">Off</button>
 			</div>
 		</div>
 	</body>

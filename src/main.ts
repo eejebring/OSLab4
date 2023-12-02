@@ -14,9 +14,13 @@ app.get("/client.js", (req: Request, res: Response) => {
 
 app.post(apiWebRoot + "/on", (req: Request, res: Response) => {
 	console.log("turned on!")
-	res.status(200).send("turned on!")
+	res.sendStatus(200)
+})
+app.post(apiWebRoot + "/off", (req: Request, res: Response) => {
+	console.log("turned off!")
+	res.sendStatus(200)
 })
 
 app.listen(port, () => {
-	console.log(`⚡️[server]: Server is running at http://localhost:${port}`)
+	console.log(`[server]: Server is running at http://localhost:${port}`)
 })
