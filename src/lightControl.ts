@@ -29,7 +29,7 @@ export class LightControl {
 		//this.light.writeSync(this.state ? 1 : 0)
 	}
 
-	public blink(intervalTime: number) {
+	public blink(intervalTime: number = 1000) {
 		this.stopBlink()
 		this.Intervall = setInterval(() => {
 			this.toggle()

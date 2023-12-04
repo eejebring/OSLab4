@@ -39,7 +39,13 @@ app.post(apiWebRoot + "/off/:lightId", (req: Request, res: Response) => {
 app.post(apiWebRoot + "/blink/:lightId", (req: Request, res: Response) => {
 	try {
 		const lightId = parseInt(req.params.lightId)
-		lights[lightId].blink(1000)
+		let intervalTime
+
+		if (req.query.intervalTime) {
+			intervalTime = parseInt(req.query.intervalTime as string)
+		}
+
+		lights[lightId].blink(intervalTime)
 		res.sendStatus(200)
 	} catch (e) {
 		res.sendStatus(500)
