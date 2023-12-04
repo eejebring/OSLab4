@@ -36,6 +36,26 @@ app.post(apiWebRoot + "/off/:lightId", (req: Request, res: Response) => {
 	}
 })
 
+app.post(apiWebRoot + "/blink/:lightId", (req: Request, res: Response) => {
+	try {
+		const lightId = parseInt(req.params.lightId)
+		lights[lightId].blink(1000)
+		res.sendStatus(200)
+	} catch (e) {
+		res.sendStatus(500)
+	}
+})
+
+app.post(apiWebRoot + "/stopBlink/:lightId", (req: Request, res: Response) => {
+	try {
+		const lightId = parseInt(req.params.lightId)
+		lights[lightId].stopBlink()
+		res.sendStatus(200)
+	} catch (e) {
+		res.sendStatus(500)
+	}
+})
+
 app.use((req: Request, res: Response) => {
 	res.sendStatus(404)
 })
