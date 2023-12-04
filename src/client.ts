@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	offButton.addEventListener("click", switchOff)
 
 	function switchOn() {
-		fetch(href + apiWebRoot + "/on", {
+		fetch(href + apiWebRoot + "/on/0", {
 			method: "POST"
 		}).then((response) => {
 			if (response.status === 200) {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function switchOff() {
-		fetch(href + apiWebRoot + "/off", {
+		fetch(href + apiWebRoot + "/off/0", {
 			method: "POST"
 		}).then((response) => {
 			if (response.status === 200) {

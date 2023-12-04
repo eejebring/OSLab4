@@ -1,8 +1,13 @@
 import express, {Express, Request, Response} from "express"
+import {LightControl} from "./lightControl"
 
 const app: Express = express()
 const port = 8080
 const apiWebRoot = "/api/1.0"
+const lights = [
+	new LightControl(28),
+	new LightControl(29),
+]
 
 app.get("/", (req: Request, res: Response) => {
 	res.sendFile("index.html", {root: __dirname})
@@ -12,13 +17,24 @@ app.get("/client.js", (req: Request, res: Response) => {
 	res.sendFile("client.js", {root: __dirname})
 })
 
-app.post(apiWebRoot + "/on", (req: Request, res: Response) => {
-	console.log("turned on!")
-	res.sendStatus(200)
+app.post(apiWebRoot + "/on/:lightId", (req: Request, res: Response) => {
+	try {
+		const lightId = parseInt(req.params.lightId)
+		lights[lightId].setState(true)
+		console.log("light: " + lightId + " turned on!")
+		res.sendStatus(200)
+	} catch (e) {
+		res.sendStatus(500)
+	}
 })
-app.post(apiWebRoot + "/off", (req: Request, res: Response) => {
-	console.log("turned off!")
-	res.sendStatus(200)
+app.post(apiWebRoot + "/off/:lightId", (req: Request, res: Response) => {
+	try {
+		const lightId = parseInt(req.params.lightId)
+		lights[lightId].setState(false)
+		res.sendStatus(200)
+	} catch (e) {
+		res.sendStatus(500)
+	}
 })
 
 app.use((req: Request, res: Response) => {
