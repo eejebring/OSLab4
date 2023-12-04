@@ -21,7 +21,6 @@ app.post(apiWebRoot + "/on/:lightId", (req: Request, res: Response) => {
 	try {
 		const lightId = parseInt(req.params.lightId)
 		lights[lightId].setState(true)
-		console.log("light: " + lightId + " turned on!")
 		res.sendStatus(200)
 	} catch (e) {
 		res.sendStatus(500)
